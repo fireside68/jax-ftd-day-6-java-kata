@@ -8,8 +8,6 @@ import com.cooksys.butterpillar.model.ISpecies;
 public class Species implements ISpecies {
 	
 	private String name;
-	private IButterpillar butterpillar;
-	private ICatterfly catterfly;
 	private IGrowthModel growthModel;
 
 	public Species() {
