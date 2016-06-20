@@ -53,7 +53,7 @@ public class Species implements ISpecies {
 	public ICatterfly[] convert(IButterpillar[] butterpillars) {
 		ICatterfly[] catterflies = new ICatterfly[butterpillars.length];
 		for(int i = 0; i < butterpillars.length; i++){
-			catterflies[i] = createCatterfly((butterpillars[i].getLength() * growthModel.getLengthToWingspan()), (butterpillars[i].getLeavesEaten() * growthModel.getLeavesEatenToWeight()));
+			catterflies[i] = this.growthModel.butterpillarToCatterfly(butterpillars[i]);
 		}
 		return catterflies;
 	}
@@ -62,7 +62,7 @@ public class Species implements ISpecies {
 	public IButterpillar[] convert(ICatterfly[] catterflies) {
 		IButterpillar[] butterpillars = new IButterpillar[catterflies.length];
 		for(int i = 0; i < catterflies.length; i++){
-			butterpillars[i] = createButterpillar((catterflies[i].getWingspan() / growthModel.getLengthToWingspan()), (catterflies[i].getWeight() / growthModel.getLeavesEatenToWeight()));
+			butterpillars[i] = this.growthModel.catterflyToButterpillar(catterflies[i]);
 		}
 		return butterpillars;
 	}
